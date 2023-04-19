@@ -1,0 +1,117 @@
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+
+[# if options.reference_style == "harv" #]
+[# if options.style == "preprint" #]
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+[# else #]
+\documentclass[review,12pt,authoryear]{elsarticle}
+[# endif #]
+[# else #]
+[# if options.style == "preprint" #]
+\documentclass[preprint,12pt]{elsarticle}
+[# else #]
+\documentclass[review,12pt]{elsarticle}
+[# endif #]
+[# endif #]
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+[# if options.lineno #]
+\usepackage{lineno}
+[# else #]
+%% \usepackage{lineno}
+[# endif #]
+
+% You should have an imports section
+[- IMPORTS -]
+
+% Journal name
+\journal{[-options.journal_name-]}
+
+\begin{document}
+
+% Frontmatter
+\begin{frontmatter}
+
+% Title
+\title{[-doc.title-]}
+
+% Authors and Affiliations
+[# for author in doc.authors #]
+
+[#- if author.affiliations -#]
+\author[
+    [--author.affiliations|join(",", "index")--]
+]{[-author.name-]}
+[#- else -#]
+\author{[-author.name-]}
+[#- endif -#]
+
+[# endfor #]
+
+[# for affiliation in doc.affiliations #]
+\affiliation[[-affiliation.index-]]{[-affiliation.value-]}
+[# endfor #]
+
+% Abstract
+[# if parts.abstract #]
+\begin{abstract}
+[-parts.abstract-]
+\end{abstract}
+[# endif #]
+
+% Graphical abstract
+[#- if parts.graphicalabstract -#]
+\begin{graphicalabstract}
+[-parts.graphicalabstract-]
+\end{graphicalabstract}
+[#- endif -#]
+
+% Highlights
+[#- if parts.highlights -#]
+\begin{highlights}
+[-parts.highlights-]
+\end{highlights}
+[#- endif -#]
+
+% Keywords
+[# if doc.keywords #]
+\begin{keyword}
+[-doc.keywords | join(" \\sep ")-]
+\end{keyword}
+[# endif #]
+
+\end{frontmatter}
+
+[# if options.lineno #]
+\linenumbers
+[# else #]
+%% \linenumbers
+[# endif #]
+
+[-CONTENT-]
+
+\bibliographystyle{elsarticle-[-options.reference_style-]}
+[# if doc.bibliography #]
+\bibliography{[- doc.bibliography | join(", ") -]}
+[# endif #]
+
+\end{document}

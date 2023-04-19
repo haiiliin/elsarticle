@@ -1,0 +1,77 @@
+jtex: v1
+title: elsarticle-template
+description: elsarticle template
+version: 1.0.0
+license: LPPL-1.2
+source: https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions
+thumbnail: ./thumbnail.png
+authors:
+  - name: WANG Hailin
+    website: https://haiiliin.com/
+    affiliations:
+      - Tongji University
+      - The Hong Kong Polytechnic University
+tags:
+  - paper
+parts:
+  - id: abstract
+    required: true
+    description: >
+      A good abstract will begin with a short description of the problem being
+      addressed, briefly describe the new data or analyses, then briefly states
+      the main conclusion(s) and how they are supported and uncertainties.
+  - id: graphicalabstract
+    required: false
+    description: >
+      Graphical abstracts are a new feature of Elsevier journals. They are
+      designed to provide a visual representation of the main findings of the
+      paper. They should be a single image, with no text, and should be
+      self-explanatory. They should be submitted as a separate file, and will be
+      published online only.
+  - id: highlights
+    required: false
+    description: >
+      Highlights are a new feature of Elsevier journals. They are designed to
+      provide a concise summary of the main findings of the paper. They should
+      be a maximum of 100 words, and should be submitted as a separate file.
+doc:
+  - id: title
+    required: true
+  - id: bibliography
+  - id: authors
+    required: true
+  - id: keywords
+    required: true
+options:
+  - type: choice
+    id: style
+    description: Document style
+    choices:
+      - preprint
+      - review
+    default: preprint
+  - type: choice
+    id: reference_style
+    description: Reference style
+    choices:
+      - harv
+      - num-names
+      - num
+    default: harv
+  - type: string
+    id: journal_name
+    description: Journal name
+    default: Nuclear Physics B
+  - type: boolean
+    id: lineno
+    description: Whether to show line numbers
+    default: false
+files:
+  - template.tex
+  - elsarticle-harv.bst
+  - elsarticle-num-names.bst
+  - elsarticle-num.bst
+packages:
+  - amsmath
+  - lineno
+myst: v1
