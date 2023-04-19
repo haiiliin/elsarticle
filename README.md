@@ -4,8 +4,8 @@ elsarticle template
 
 ![](thumbnail.png)
 
-- Author: WANG Hailin (Elsevier)
-- Author Website: haiiliin.com
+- Author: Elsevier
+- Author Website: https://www.elsevier.com/
 - [Submission Guidelines](https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions)
 
 ## Steps to creating your own template!
