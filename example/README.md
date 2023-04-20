@@ -17,6 +17,7 @@ exports:
     template: ..
   - format: pdf
     template: ..
+    output: elsarticle-example.pdf
 ---
 
 +++ {"part": "abstract"}
