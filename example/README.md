@@ -16,13 +16,13 @@ exports:
   - format: tex
     template: .. # The folder with your template.yml in it
     style: review
-    reference_style: num
+    reference_style: harv
     journal_name: Computer \& Geotechnics
     lineno: true
   - format: pdf
     template: ..
     style: review
-    reference_style: num
+    reference_style: harv
     journal_name: Computer \& Geotechnics
     lineno: true
 ---
