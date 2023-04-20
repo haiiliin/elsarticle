@@ -8,6 +8,98 @@ elsarticle template
 - Author Website: https://www.elsevier.com/
 - [Submission Guidelines](https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions)
 
+## Usage
+
+Clone this repository to your local machine:
+
+```shell
+git clone https://github.com/haiiliin/elsarticle.git
+```
+
+Create a new MyST Markdown document:
+
+```shell
+echo "# Document" > document.md
+```
+
+Install [MyST Markdown](https://myst-tools.org/docs/mystjs/quickstart), and then add some frontmatter:
+
+```markdown
+---
+title: Title of your document
+authors:
+  - name: WANG Hailin
+    affiliations:
+      - Tongji University
+      - The Hong Kong Polytechnic University
+keywords: Example, Keywords
+bibliography: paper.bib
+
+exports:
+  - format: pdf  # or tex to get the LaTeX source
+    template: elsarticle
+ 
+    # Options below are optional, see below for more details
+    style: review
+    reference_style: harv
+    journal_name: Example Journal
+    lineno: false
+---
+
+# Document
+```
+
+Add the `abstract`, `graphicalabstract`, and `highlights` blocks to your document:
+
+```markdown
++++ {"part": "abstract"}
+This is the abstract of my document.
++++
+
++++ {"part": "graphicalabstract"}
+This is the graphical abstract of my document.
++++
+
++++ {"part": "highlights"}
+This is the highlights of my document.
++++
+```
+
+## Customization
+
+There are three types of customizations you can make to your template:
+
+- ``document``: These are the variables set in the frontmatter of your document, 
+  and are used to set basic information about your document.
+- ``options``: These are the options in the `exports` section of the frontmatter, 
+  and are used to set the style of your document.
+- ``parts``: These are the blocks in your document, using the syntax like `+++ {"part": "abstract"} +++` (see above),
+  and are used to set some special sections of your document.
+
+In the `elsarticle` template, the following options are available:
+
+| Category | Option              | type    | required | default           | description                                |
+|----------|---------------------|---------|----------|-------------------|--------------------------------------------|
+| document | `title`             | string  | true     |                   | Title of your document                     |
+|          | `authors`           | list    | true     |                   | List of authors                            |
+|          | `keywords`          | list    | true     |                   | List of keywords                           |
+|          | `bibliography`      | string  | false    |                   | Path to your bibliography file (*.bib)     |
+| options  | `style`             | boolean | false    | review            | Style of your document, preprint or review |
+|          | `reference_style`   | string  | false    | harv              | Reference style, harv, num-names, or num   | 
+|          | `journal_name`      | string  | false    | Nuclear Physics B | Journal name                               |
+|          | `lineno`            | boolean | false    | false             | Whether to show line numbers               |
+| parts    | `abstract`          | string  | true     |                   | Abstract of your document                  |
+|          | `graphicalabstract` | string  | true     |                   | Graphical abstract of your document        |
+|          | `highlights`        | string  | true     |                   | Highlights of your document                |
+
+To build your PDF:
+
+```shell
+myst build --pdf
+```
+
+See [MyST Guide for creating Documents](https://myst-tools.org/docs/mystjs/quickstart-myst-documents) for full instructions.
+
 ## Steps to creating your own template!
 
 - [x] 🆕 Create this repository. Nailed it. 🚀

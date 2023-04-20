@@ -80,17 +80,17 @@
 
 % Graphical abstract
 \begin{graphicalabstract}
-[#- if parts.graphicalabstract -#]
+[# if parts.graphicalabstract #]
 [-parts.graphicalabstract-]
-[#- endif -#]
+[# endif #]
 \end{graphicalabstract}
 
 % Highlights
-[#- if parts.highlights -#]
+[# if parts.highlights #]
 \begin{highlights}
 [-parts.highlights-]
 \end{highlights}
-[#- endif -#]
+[# endif #]
 
 % Keywords
 [# if doc.keywords #]
