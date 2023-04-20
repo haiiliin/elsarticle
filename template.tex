@@ -72,18 +72,18 @@
 [# endfor #]
 
 % Abstract
-[# if parts.abstract #]
 \begin{abstract}
+[# if parts.abstract #]
 [-parts.abstract-]
-\end{abstract}
 [# endif #]
+\end{abstract}
 
 % Graphical abstract
-[#- if parts.graphicalabstract -#]
 \begin{graphicalabstract}
+[#- if parts.graphicalabstract -#]
 [-parts.graphicalabstract-]
-\end{graphicalabstract}
 [#- endif -#]
+\end{graphicalabstract}
 
 % Highlights
 [#- if parts.highlights -#]
