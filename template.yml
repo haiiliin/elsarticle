@@ -20,7 +20,7 @@ parts:
       A good abstract will begin with a short description of the problem being
       addressed, briefly describe the new data or analyses, then briefly states
       the main conclusion(s) and how they are supported and uncertainties.
-  - id: graphicalabstract
+  - id: graphical_abstract
     required: false
     description: >
       Graphical abstracts are a new feature of Elsevier journals. They are

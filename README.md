@@ -15,19 +15,19 @@ on how to set up a MyST project.
 
 In the `elsarticle` template, the following options are available:
 
-| Category | Option              | type    | required | default           | description                                    |
-|----------|---------------------|---------|----------|-------------------|------------------------------------------------|
-| document | `title`             | string  | true     |                   | Title of your document                         |
-|          | `authors`           | list    | true     |                   | List of authors                                |
-|          | `keywords`          | string  | true     |                   | List of keywords                               |
-|          | `bibliography`      | string  | false    |                   | Path to your bibliography file (*.bib)         |
-| options  | `style`             | boolean | false    | `review`          | Style of your document, `preprint` or `review` |
-|          | `reference_style`   | string  | false    | `harv`            | Reference style, `harv`, `num-names`, or `num` | 
-|          | `journal_name`      | string  | false    | Nuclear Physics B | Journal name                                   |
-|          | `lineno`            | boolean | false    | false             | Whether to show line numbers                   |
-| parts    | `abstract`          | string  | true     |                   | Abstract of your document                      |
-|          | `graphicalabstract` | string  | false    |                   | Graphical abstract of your document            |
-|          | `highlights`        | string  | false    |                   | Highlights of your document                    |
+| Category | Option               | type    | required | default           | description                                    |
+|----------|----------------------|---------|----------|-------------------|------------------------------------------------|
+| document | `title`              | string  | true     |                   | Title of your document                         |
+|          | `authors`            | list    | true     |                   | List of authors                                |
+|          | `keywords`           | string  | true     |                   | List of keywords                               |
+|          | `bibliography`       | string  | false    |                   | Path to your bibliography file (*.bib)         |
+| options  | `style`              | boolean | false    | `review`          | Style of your document, `preprint` or `review` |
+|          | `reference_style`    | string  | false    | `harv`            | Reference style, `harv`, `num-names`, or `num` | 
+|          | `journal_name`       | string  | false    | Nuclear Physics B | Journal name                                   |
+|          | `lineno`             | boolean | false    | false             | Whether to show line numbers                   |
+| parts    | `abstract`           | string  | true     |                   | Abstract of your document                      |
+|          | `graphical_abstract` | string  | false    |                   | Graphical abstract of your document            |
+|          | `highlights`         | string  | false    |                   | Highlights of your document                    |
 
 ## Steps to creating your own template!
 
