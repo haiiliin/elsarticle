@@ -26,8 +26,8 @@ In the `elsarticle` template, the following options are available:
 |          | `journal_name`      | string  | false    | Nuclear Physics B | Journal name                                   |
 |          | `lineno`            | boolean | false    | false             | Whether to show line numbers                   |
 | parts    | `abstract`          | string  | true     |                   | Abstract of your document                      |
-|          | `graphicalabstract` | string  | true     |                   | Graphical abstract of your document            |
-|          | `highlights`        | string  | true     |                   | Highlights of your document                    |
+|          | `graphicalabstract` | string  | false    |                   | Graphical abstract of your document            |
+|          | `highlights`        | string  | false    |                   | Highlights of your document                    |
 
 ## Steps to creating your own template!
 
