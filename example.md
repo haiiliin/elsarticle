@@ -2,7 +2,7 @@
 title: My article title
 exports:
   - format: tex
-    template: .. # The folder with your template.yml in it
+    template: . # The folder with your template.yml in it
     style: review
     reference_style: num
     journal_name: Computer \& Geotechnics
