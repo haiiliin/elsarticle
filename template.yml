@@ -34,6 +34,26 @@ parts:
       Highlights are a new feature of Elsevier journals. They are designed to
       provide a concise summary of the main findings of the paper. They should
       be a maximum of 100 words, and should be submitted as a separate file.
+  - id: availability
+    description: >
+      The availability section should include a statement of the availability of
+      the data and materials used in the study. The statement should include
+      information about the availability of the data and materials, and the
+      location of the data and materials. The statement should also include
+      information about the length of time the data and materials will be
+      available, and the method of obtaining the data and materials.
+  - id: acknowledgements
+    description: >
+      The acknowledgements section should include a statement of the
+      acknowledgements. The statement should include information about the
+      individuals and organizations that provided financial or other support for
+      the research and/or writing of the manuscript.
+  - id: appendix
+    description: >
+      The appendix section should include a statement of the appendix. The
+      statement should include information about the appendix. The statement
+      should also include information about the length of time the appendix will
+      be available, and the method of obtaining the appendix.
 doc:
   - id: title
     required: true

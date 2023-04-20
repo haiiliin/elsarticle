@@ -109,6 +109,23 @@
 
 [-CONTENT-]
 
+% Availability
+\section*{Data Availability Statement}
+[# if parts.availability #]
+[-parts.availability-]
+[# endif #]
+
+% Acknowledgements
+\section*{Acknowledgements}
+[# if parts.acknowledgements #]
+[-parts.acknowledgements-]
+[# endif #]
+
+% Appendix
+[# if parts.appendix #]
+[-parts.appendix-]
+[# endif #]
+
 \bibliographystyle{elsarticle-[-options.reference_style-]}
 [# if doc.bibliography #]
 \bibliography{[- doc.bibliography | join(", ") -]}

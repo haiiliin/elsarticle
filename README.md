@@ -28,6 +28,9 @@ In the `elsarticle` template, the following options are available:
 | parts    | `abstract`           | string  | true     |                   | Abstract of your document                      |
 |          | `graphical_abstract` | string  | false    |                   | Graphical abstract of your document            |
 |          | `highlights`         | string  | false    |                   | Highlights of your document                    |
+|          | `availability`       | string  | false    |                   | Data availability statement                    |
+|          | `acknowledgements`   | string  | false    |                   | Acknowledgements                               |
+|          | `appendix`           | string  | false    |                   | Appendix                                       |
 
 ## Steps to creating your own template!
 
