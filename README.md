@@ -20,7 +20,7 @@ In the `elsarticle` template, the following options are available:
 | Document |       `title`        | `string`  |  `Yes`   |                     | Title of your document                         |
 |          |      `authors`       |  `list`   |  `Yes`   |                     | List of authors                                |
 |          |      `keywords`      | `string`  |  `Yes`   |                     | List of keywords                               |
-|          |    `bibliography`    | `string`  |   `No`   |                     | Path to your bibliography file (*.bib)         |
+|          |    `bibliography`    | `string`  |   `No`   |                     | Path to your bibliography file (`*.bib`)       |
 | Options  |       `style`        | `boolean` |   `No`   |      `review`       | Style of your document, `preprint` or `review` |
 |          |  `reference_style`   | `string`  |   `No`   |       `harv`        | Reference style, `harv`, `num-names`, or `num` | 
 |          |   `other_options`    | `string`  |   `No`   |       `12pt`        | Other options for the document class           |
