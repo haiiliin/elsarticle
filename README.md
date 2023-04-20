@@ -23,6 +23,7 @@ In the `elsarticle` template, the following options are available:
 |          |    `bibliography`    | `string`  |   `No`   |                     | Path to your bibliography file (*.bib)         |
 | Options  |       `style`        | `boolean` |   `No`   |      `review`       | Style of your document, `preprint` or `review` |
 |          |  `reference_style`   | `string`  |   `No`   |       `harv`        | Reference style, `harv`, `num-names`, or `num` | 
+|          |   `other_options`    | `string`  |   `No`   |       `12pt`        | Other options for the document class           |
 |          |    `journal_name`    | `string`  |   `No`   | `Nuclear Physics B` | Journal name                                   |
 |          |       `lineno`       | `boolean` |   `No`   |       `false`       | Whether to show line numbers                   |
 |  Parts   |      `abstract`      | `string`  |  `Yes`   |                     | Abstract of your document                      |

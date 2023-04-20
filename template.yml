@@ -79,6 +79,10 @@ options:
       - num
     default: harv
   - type: string
+    id: other_options
+    description: Other options for the document class
+    default: '12pt'
+  - type: string
     id: journal_name
     description: Journal name
     default: Nuclear Physics B
