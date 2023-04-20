@@ -1,1 +1,1 @@
-myst build example.md --tex
+myst build README.md --tex
