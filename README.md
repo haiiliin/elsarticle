@@ -15,22 +15,22 @@ on how to set up a MyST project.
 
 In the `elsarticle` template, the following options are available:
 
-| Category | Option               | type    | required | default           | description                                    |
-|----------|----------------------|---------|----------|-------------------|------------------------------------------------|
-| document | `title`              | string  | true     |                   | Title of your document                         |
-|          | `authors`            | list    | true     |                   | List of authors                                |
-|          | `keywords`           | string  | true     |                   | List of keywords                               |
-|          | `bibliography`       | string  | false    |                   | Path to your bibliography file (*.bib)         |
-| options  | `style`              | boolean | false    | `review`          | Style of your document, `preprint` or `review` |
-|          | `reference_style`    | string  | false    | `harv`            | Reference style, `harv`, `num-names`, or `num` | 
-|          | `journal_name`       | string  | false    | Nuclear Physics B | Journal name                                   |
-|          | `lineno`             | boolean | false    | false             | Whether to show line numbers                   |
-| parts    | `abstract`           | string  | true     |                   | Abstract of your document                      |
-|          | `graphical_abstract` | string  | false    |                   | Graphical abstract of your document            |
-|          | `highlights`         | string  | false    |                   | Highlights of your document                    |
-|          | `availability`       | string  | false    |                   | Data availability statement                    |
-|          | `acknowledgements`   | string  | false    |                   | Acknowledgements                               |
-|          | `appendix`           | string  | false    |                   | Appendix                                       |
+| Category |        Option        |   Type    | Required |       Default       | Description                                    |
+|:--------:|:--------------------:|:---------:|:--------:|:-------------------:|------------------------------------------------|
+| Document |       `title`        | `string`  |  `Yes`   |                     | Title of your document                         |
+|          |      `authors`       |  `list`   |  `Yes`   |                     | List of authors                                |
+|          |      `keywords`      | `string`  |  `Yes`   |                     | List of keywords                               |
+|          |    `bibliography`    | `string`  |   `No`   |                     | Path to your bibliography file (*.bib)         |
+| Options  |       `style`        | `boolean` |   `No`   |      `review`       | Style of your document, `preprint` or `review` |
+|          |  `reference_style`   | `string`  |   `No`   |       `harv`        | Reference style, `harv`, `num-names`, or `num` | 
+|          |    `journal_name`    | `string`  |   `No`   | `Nuclear Physics B` | Journal name                                   |
+|          |       `lineno`       | `boolean` |   `No`   |       `false`       | Whether to show line numbers                   |
+|  Parts   |      `abstract`      | `string`  |  `Yes`   |                     | Abstract of your document                      |
+|          | `graphical_abstract` | `string`  |   `No`   |                     | Graphical abstract of your document            |
+|          |     `highlights`     | `string`  |   `No`   |                     | Highlights of your document                    |
+|          |    `availability`    | `string`  |   `No`   |                     | Data availability statement                    |
+|          |  `acknowledgements`  | `string`  |   `No`   |                     | Acknowledgements                               |
+|          |      `appendix`      | `string`  |   `No`   |                     | Appendix                                       |
 
 ## Steps to creating your own template!
 
