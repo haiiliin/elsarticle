@@ -1,1 +1,1 @@
-myst build README.md --tex
+myst build --tex --pdf
