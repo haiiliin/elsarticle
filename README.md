@@ -29,12 +29,6 @@ In the `elsarticle` template, the following options are available:
 |          | `graphicalabstract` | string  | true     |                   | Graphical abstract of your document        |
 |          | `highlights`        | string  | true     |                   | Highlights of your document                |
 
-To build your PDF:
-
-```shell
-myst build --pdf
-```
-
 ## Steps to creating your own template!
 
 - [x] 🆕 Create this repository. Nailed it. 🚀
