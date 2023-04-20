@@ -75,7 +75,7 @@ Citations are rendered with a popup directly inline.
 
 MyST aims to show as much information in context as possible, for example, [](#equations) shows a reading experience for a referenced equation: you can immediately **click on the reference**, see the equation, all without loosing any context -- ultimately saving you time. [](doi:10.1145/3411764.3445648) found that these ideas both improved the overall reading experience of articles as well as allowed researchers to answer questions about an article **26% faster** when compared to a traditional PDF!
 
-```{figure} ./images/equations.gif
+```{figure} ./images/equations.*
 :name: equations
 
 In context cross-references improve the reading experience.
@@ -83,7 +83,7 @@ In context cross-references improve the reading experience.
 
 One of the important underlying goals of practicing reproducibility, sharing more of the methods and data behind a scientific work so that other researchers can both verify as well as build upon your findings. One of the exciting ways to pull for reproducibility is to make documents directly linked to data and computation! In [](#interactive), we are showing outputs from a Jupyter Notebook directly part of the published scientific narrative.
 
-```{figure} ./images/interactive.gif
+```{figure} ./images/interactive.*
 :name: interactive
 
 Embedding data, interactivity and computation into a MyST article.
@@ -91,7 +91,7 @@ Embedding data, interactivity and computation into a MyST article.
 
 To drive all of these features, the contents of a MyST document needs to be well defined. This is critical for powering interactive hovers, linked citations, and compatibility with scientific publishing standards like the Journal Article Metadata Tag Suite (JATS). We have an emerging specification for MyST, [`myst-spec`](https://spec.myst.tools), that aims to capture this information and transform it between many different formats, like PDF, Word, JSON, and JATS XML ([](#structured-data)). This specification is arrived at through a community-centric MyST Enhancement Proposal ([MEP](https://compass.executablebooks.org/en/latest/meps.html)) process.
 
-```{figure} ./images/structured-data.gif
+```{figure} ./images/structured-data.*
 :name: structured-data
 
 The data behind MyST is **structured**, which means we can transform it into many different document types and use it to power all sorts of exciting features!

@@ -49,7 +49,7 @@ options:
     choices:
       - preprint
       - review
-    default: preprint
+    default: review
   - type: choice
     id: reference_style
     description: Reference style
