@@ -15,6 +15,7 @@ keywords: myst, markdown, open-science
 exports:
   - format: tex
     template: ..
+    output: elsarticle-example.zip
   - format: pdf
     template: ..
     output: elsarticle-example.pdf
