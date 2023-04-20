@@ -278,3 +278,7 @@ TSWLatexianTemp*
 
 # myst template build files
 _build/
+
+# IDE configuration files
+.vscode/
+.idea/
