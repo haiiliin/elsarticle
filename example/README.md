@@ -14,17 +14,9 @@ license: CC-BY-4.0
 keywords: myst, markdown, open-science
 exports:
   - format: tex
-    template: .. # The folder with your template.yml in it
-    style: review
-    reference_style: harv
-    journal_name: Computer \& Geotechnics
-    lineno: true
+    template: ..
   - format: pdf
     template: ..
-    style: review
-    reference_style: harv
-    journal_name: Computer \& Geotechnics
-    lineno: true
 ---
 
 +++ {"part": "abstract"}
