@@ -81,11 +81,11 @@
 [# endif #]
 
 % Keywords
-[# if doc.keywords #]
 \begin{keyword}
+[# if doc.keywords #]
 [-doc.keywords | join(" \\sep ")-]
-\end{keyword}
 [# endif #]
+\end{keyword}
 
 \end{frontmatter}
 
@@ -97,25 +97,26 @@
 
 [-CONTENT-]
 
+[# if parts.availability #]
 % Availability
 \section*{Data Availability Statement}
-[# if parts.availability #]
 [-parts.availability-]
 [# endif #]
 
+[# if parts.acknowledgements #]
 % Acknowledgements
 \section*{Acknowledgements}
-[# if parts.acknowledgements #]
 [-parts.acknowledgements-]
 [# endif #]
 
-% Appendix
 [# if parts.appendix #]
+% Appendix
 [-parts.appendix-]
 [# endif #]
 
-\bibliographystyle{elsarticle-[-options.reference_style-]}
 [# if doc.bibliography #]
+% Bibliography
+\bibliographystyle{elsarticle-[-options.reference_style-]}
 \bibliography{[- doc.bibliography | join(", ") -]}
 [# endif #]
 
