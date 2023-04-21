@@ -96,5 +96,6 @@ files:
   - elsarticle-num-names.bst
   - elsarticle-num.bst
 packages:
+  - amsmath
   - lineno
 myst: v1
