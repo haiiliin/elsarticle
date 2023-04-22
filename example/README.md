@@ -3,9 +3,15 @@ title: Pixels and Their Neighbours
 short_title: Finite Volume
 github: https://github.com/simpeg/tle-finitevolume/
 authors:
-  - name: SimPEG
+  - name: Rowan Cockett
     affiliations:
-      - An open source python package for simulation and gradient based parameter estimation in geophysical applications.
+      - University of British Columbia
+  - name: Lindsey J. Heagy
+    affiliations:
+      - University of British Columbia
+  - name: Douglas W. Oldenburg
+    affiliations:
+      - University of British Columbia
 license:
   content: CC-BY-SA-3.0
 open_access: true
