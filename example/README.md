@@ -1,21 +1,25 @@
 ---
 title: Pixels and Their Neighbours
 short_title: Finite Volume
-github: https://github.com/simpeg/tle-finitevolume/
-authors:
-  - name: Rowan Cockett
-    affiliations:
-      - University of British Columbia
-  - name: Lindsey J. Heagy
-    affiliations:
-      - University of British Columbia
-  - name: Douglas W. Oldenburg
-    affiliations:
-      - University of British Columbia
-license:
-  content: CC-BY-SA-3.0
 open_access: true
 doi: 10.1190/tle35080703.1
+github: https://github.com/simpeg/tle-finitevolume
+date: 2016/08/01
+authors:
+- name: Rowan Cockett
+  orcid: 0000-0002-7859-8394
+  corresponding: true
+  email: rowan@curvenote.com
+  affiliations:
+    - University of British Columbia
+- name: Lindsey Heagy
+  orcid: 0000-0002-1551-5926
+  affiliations:
+    - University of British Columbia
+- name: Douglas Oldenburg
+  orcid: 0000-0002-4327-2124
+  affiliations:
+    - University of British Columbia
 biblio:
   volume: '35'
   issue: '8'
