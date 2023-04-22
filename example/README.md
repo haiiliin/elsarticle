@@ -1,17 +1,18 @@
 ---
-title: How to MyST, without being mystified
-subject: Tutorial
-subtitle: Evolve your markdown documents into structured data
-short_title: How to MyST
+title: Pixels and Their Neighbours
+short_title: Finite Volume
+github: https://github.com/simpeg/tle-finitevolume/
 authors:
-  - name: Rowan Cockett
+  - name: SimPEG
     affiliations:
-      - Executable Books
-      - Curvenote
-    orcid: 0000-0002-7859-8394
-    email: rowan@curvenote.com
-license: CC-BY-4.0
-keywords: myst, markdown, open-science
+      - An open source python package for simulation and gradient based parameter estimation in geophysical applications.
+license:
+  content: CC-BY-SA-3.0
+keywords:
+  - Finite volume
+  - Direct current
+  - Resistivity
+  - DC equations
 exports:
   - format: tex
     template: ..
@@ -21,100 +22,128 @@ exports:
     output: elsarticle-example.pdf
 ---
 
-+++ {"part": "abstract"}
++++ { "part": "abstract" }
 
-We introduce, a set of open-source, community-driven tools for MyST Markdown ([myst.tools](https://myst.tools)) designed for scientific communication, including a powerful authoring framework that supports blogs, online books, scientific papers, reports and journals articles.
+In this tutorial we take you on the journey from continuous equations to their discrete matrix representations using the finite volume method for the Direct Current (DC) resistivity problem. These techniques are widely applicable across geophysical simulation types and have their parallels in finite element and finite difference. We show derivations visually, as you would on a whiteboard, and have provided an accompanying notebook to explore the numerical results using [SimPEG](http://simpeg.xyz/).
 
 +++
 
-# How to MyST, without being mystified
-
-A tutorial to evolve markdown documents and notebooks into structured data
-
-## Background
-
-Scientific communication today is designed around print documents and pay-walled access to content. Over the last decade, the open-science movement has accelerated the use of pre-print services and data archives that are vastly improving the accessibility of scientific content. However, these systems are not designed for communicating modern scientific outputs, which encompasses **so much more** than a paper-centric model of the scholarly literature.
-
-> We believe how we share and communicate scientific knowledge should evolve past the status quo of print-based publishing and all the limitations of paper.
-
-The communication and collaboration tools that we are building in the ExecutableBooks project are built to follow the FORCE11 recommendations [](doi:10.4230/DAGMAN.1.1.41). Specifically:
-
-1. rethink the unit and form of scholarly publication;
-2. develop tools and technologies to better support the scholarly lifecycle; and
-3. add data, software, and workflows as first-class research objects.
-
-By bringing professional, high-quality tools for science communication into the research lifecycle, we believe we can improve the collection and preservation of scholarly metadata (citations, cross-references, annotations, etc.) as well as open up new ways to communicate science with interactive figures & equations, computation, and reactivity.
-
-The tools that are being built by the ExecutableBooks project are focused on introducing a new Markup language, MyST (Markedly Structured Text), that works seamlessly with the Jupyter community to enhance and promote a new path to document creation and publishing for next-generation scientific textbooks, blogs, and lectures. Our team is currently supported by the [Sloan Foundation](https://sloan.org), ([Grant #9231](https://sloan.org/grant-detail/9231)).
-
-MyST enables rich content generation and is a powerful format for scientific and technical communication. JupyterBook uses MyST and has broad adoption in publishing tutorials and educational content focused around Jupyter Notebooks.
-
-> The components behind Jupyter Book are downloaded 30,000 times a day, with 750K downloads last month.
-
-The current toolchain used by [JupyterBook] is based on [Sphinx], which is an open-source documentation system used in many software projects, especially in the Python ecosystem. `mystjs` is a similar tool to [Sphinx], however, designed specifically for scientific communication. In addition to building websites, `mystjs` can also help you create scientific PDFs, Microsoft Word documents, and JATS XML (used in scientific publishing).
-
-`mystjs` uses existing, modern web-frameworks in place of the [Sphinx] build system. These tools come out-of-the-box with prefetching for faster navigation, smaller network payloads through modern web-bundlers, image optimization, partial-page refresh through single-page application. Many of these features, performance and accessibility improvements are difficult, if not impossible, to create inside of the [Sphinx] build system.
-
-In 2022, the Executable Books team started work to document the specification behind the markup language, called [myst-spec](https://github.com/executablebooks/myst-spec), this work has enabled other tools and implementations in the scientific ecosystem to build on MyST (e.g. [scientific authoring tools](https://curvenote.com/for/writing), and [documentation systems](https://blog.readthedocs.com/jupyter-book-read-the-docs/)).
-
-The `mystjs` ecosystem was developed as a collaboration between [Curvenote], [2i2c] and the [ExecutableBooks] team. The initial version of `mystjs` was originally release by [Curvenote] as the [Curvenote CLI](https://curvenote.com/docs/cli) under the MIT license, and transferred to the [ExecutableBooks] team in October 2022. The goal of the project is to enable the same rich content and authoring experiences that [Sphinx] allows for software documentation, with a focus on web-first technologies (Javascript), interactivity, accessibility, scientific references (e.g. DOIs and other persistent IDs), professional PDF outputs, and JATS XML documents for scientific archiving.
-
-## MyST Project
-
-In this paper we introduce `mystjs`, which allows the popular MyST Markdown syntax to be run directly in a web browser, opening up new workflows for components to be used in web-based editors, [directly in Jupyter](https://github.com/executablebooks/jupyterlab-myst) and in JupyterLite. The libraries work with current MyST Markdown documents/projects and can export to [LaTeX/PDF](https://myst.tools/docs/mystjs/creating-pdf-documents), [Microsoft Word](https://myst.tools/docs/mystjs/creating-word-documents) and [JATS](https://myst.tools/docs/mystjs/creating-jats-xml) as well as multiple website templates using a [modern](https://myst.tools/docs/mystjs/accessibility-and-performance) React-based renderer. There are currently over 400 scientific journals that are supported through [templates](https://github.com/myst-templates), with [new LaTeX templates](https://myst.tools/docs/jtex/create-a-latex-template) that can be added easily using a Jinja-based templating package, called [jtex](https://myst.tools/docs/jtex).
-
-In our paper we will give an overview of the MyST ecosystem, how to use MyST tools in conjunction with existing Jupyter Notebooks, markdown documents, and JupyterBooks to create professional PDFs and interactive websites, books, blogs and scientific articles. We give special attention to the additions around structured data, standards in publishing (e.g. efforts in representing Notebooks as JATS XML), rich [frontmatter](https://myst.tools/docs/mystjs/frontmatter) and bringing [cross-references](https://myst.tools/docs/mystjs/cross-references) and [persistent IDs](https://myst.tools/docs/mystjs/external-references) to life with interactive hover-tooltips ([ORCID, RoR](https://myst.tools/docs/mystjs/frontmatter), [RRIDs](https://myst.tools/docs/mystjs/external-references#research-resource-identifiers), [DOIs](https://myst.tools/docs/mystjs/citations), [intersphinx](https://myst.tools/docs/mystjs/external-references#intersphinx), [wikipedia](https://myst.tools/docs/mystjs/external-references#wikipedia-links), [JATS](https://myst.tools/docs/mystjs/typography), [GitHub code](https://myst.tools/docs/mystjs/external-references#github-links), and more!). This rich metadata and structured content can be used directly to improve science communication both through self-publishing books, blogs, and lab websites — as well as journals that incorporate Jupyter Notebooks.
-
-## Features of MyST
-
-MyST is focused on scientific writing, and ensuring that citations are first class both for writing and for reading (see [](#citations)).
-
-```{figure} ./images/citations.png
-:name: citations
-
-Citations are rendered with a popup directly inline.
+```{important}
+This article was originally published in the Leading Edge ([Cockett et al., 2016](http://library.seg.org/doi/10.1190/tle35080703.1)) and is licensed under [CC-BY-SA-3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 ```
 
-MyST aims to show as much information in context as possible, for example, [](#equations) shows a reading experience for a referenced equation: you can immediately **click on the reference**, see the equation, all without loosing any context -- ultimately saving you time. [](doi:10.1145/3411764.3445648) found that these ideas both improved the overall reading experience of articles as well as allowed researchers to answer questions about an article **26% faster** when compared to a traditional PDF!
++++
 
-```{figure} ./images/equations.*
-:name: equations
+# DC Resistivity
 
-In context cross-references improve the reading experience.
+DC resistivity surveys obtain information about subsurface electrical conductivity, $\sigma$. This physical property is often diagnostic in mineral exploration, geotechnical, environmental and hydrogeologic problems, where the target of interest has a significant electrical conductivity contrast from the background. In a DC resistivity survey, steady state currents are set up in the subsurface by injecting current through a positive electrode and completing the circuit with a return electrode ([](#dc-setup)).
+
+```{figure} images/dc-setup.png
+:width: 90%
+:class: col-margin-right row-span-2
+:name: dc-setup
+
+Setup of a DC resistivity survey.
 ```
 
-One of the important underlying goals of practicing reproducibility, sharing more of the methods and data behind a scientific work so that other researchers can both verify as well as build upon your findings. One of the exciting ways to pull for reproducibility is to make documents directly linked to data and computation! In [](#interactive), we are showing outputs from a Jupyter Notebook directly part of the published scientific narrative.
+The equations for DC resistivity are derived in ([](#dc-eqns)). Conservation of charge (which can be derived by taking the divergence of Ampere's law at steady state) connects the divergence of the current density everywhere in space to the source term which consists of two point sources, one positive and one negative.
 
-```{figure} ./images/interactive.*
-:name: interactive
+The flow of current sets up electric fields according to Ohm's law, which relates current density to electric fields through the electrical conductivity. From Faraday's law for steady state fields, we can describe the electric field in terms of a scalar potential, $\phi$, which we sample at potential electrodes to obtain data in the form of potential differences.
 
-Embedding data, interactivity and computation into a MyST article.
+```{figure} images/dc-eqns.png
+:name: dc-eqns
+Derivation of the DC resistivity equations.
 ```
 
-To drive all of these features, the contents of a MyST document needs to be well defined. This is critical for powering interactive hovers, linked citations, and compatibility with scientific publishing standards like the Journal Article Metadata Tag Suite (JATS). We have an emerging specification for MyST, [`myst-spec`](https://spec.myst.tools), that aims to capture this information and transform it between many different formats, like PDF, Word, JSON, and JATS XML ([](#structured-data)). This specification is arrived at through a community-centric MyST Enhancement Proposal ([MEP](https://compass.executablebooks.org/en/latest/meps.html)) process.
+To set up a solvable system of equations, we need the same number of unknowns as equations, in this case two unknowns (one scalar, $\phi$, and one vector $\vec{j}$) and two first-order equations (one scalar, one vector).
 
-```{figure} ./images/structured-data.*
-:name: structured-data
+In this tutorial, we walk through setting up these first order equations in finite volume in three steps: (1) defining where the variables live on the mesh; (2) looking at a single cell to define the discrete divergence and the weak formulation; and (3) moving from a cell based view to the entire mesh to construct and solve the resulting matrix system. The notebooks included with this tutorial leverage the [SimPEG](http://simpeg.xyz/) package, which extends the methods discussed here to various mesh types.
 
-The data behind MyST is **structured**, which means we can transform it into many different document types and use it to power all sorts of exciting features!
+# Where do things live?
+
+To bring our continuous equations into the computer, we need to discretize the earth and represent it using a finite(!) set of numbers. In this tutorial we will explain the discretization in 2D and generalize to 3D in the notebooks. A 2D (or 3D!) mesh is used to divide up space, and we can represent functions (fields, parameters, etc.) on this mesh at a few discrete places: the nodes, edges, faces, or cell centers. For consistency between 2D and 3D we refer to faces having area and cells having volume, regardless of their dimensionality. Nodes and cell centers naturally hold scalar quantities while edges and faces have implied directionality and therefore naturally describe vectors. The conductivity, $\sigma$, changes as a function of space, and is likely to have discontinuities (e.g. if we cross a geologic boundary). As such, we will represent the conductivity as a constant over each cell, and discretize it at the center of the cell. The electrical current density, $\vec{j}$, will be continuous across conductivity interfaces, and therefore, we will represent it on the faces of each cell. Remember that $\vec{j}$ is a vector; the direction of it is implied by the mesh definition (i.e. in $x$, $y$ or $z$), so we can store the array $\mathbf{j}$ as _scalars_ that live on the face and inherit the face's normal. When $\vec{j}$ is defined on the faces of a cell the potential, $\phi$, will be put on the cell centers (since $\vec{j}$ is related to $\phi$ through spatial derivatives, it allows us to approximate centered derivatives leading to a staggered, second-order discretization). Once we have the functions placed on our mesh, we look at a single cell to discretize each first order equation. For simplicity in this tutorial we will choose to have all of the faces of our mesh be aligned with our spatial axes ($x$, $y$ or $z$), the extension to curvilinear meshes will be presented in the supporting notebooks.
+
+```{figure} images/mesh.png
+:name: fig-mesh
+:align: center
+:width: 100%
+
+Anatomy of a finite volume cell.
 ```
 
-One of the common forms of scientific communication today is through PDF documents. MyST has excellent support for creating PDF documents, using a data-driven templating library called `jtex`. The document in [](#pdf-two-column) was created using MyST!
+# One cell at a time
 
-```{figure} ./images/pdf-two-column.png
-:name: pdf-two-column
+To discretize the first order differential equations we consider a single cell in the mesh and we will work through the discrete description of equations (1) and (2) over that cell.
 
-A PDF rendering through MyST.
+## (1) In and out
+
+```{figure} images/divergence.png
+:name: fig-div
+:align: left
+:class: col-page-right
+:width: 90%
+
+Geometrical definition of the divergence and the discretization.
 ```
 
-## Conclusion
+So we have half of the equation discretized - the left hand side. Now we need to take care of the source: it contains two dirac delta functions - these are infinite at their origins, $r_{s^+}$ and $r_{s^-}$. However, the volume integral of a delta function _is_ well defined: it is _unity_ if the volume contains the origin of the delta function otherwise it is _zero_.
 
-There are many opportunities to improve open-science communication, to make it more interactive, accessible, more reproducible, and both produce and use structured data throughout the research-writing process. The `mystjs` ecosystem of tools is designed with structured data at its core. We would love if you gave it a try -- learn to get started at <https://myst.tools>.
+As such, we can integrate both sides of the equation over the volume enclosed by the cell. Since $\mathbf{D}\mathbf{j}$ is constant over the cell, the integral is simply a multiplication by the volume of the cell $\text{v} \mathbf{D} \mathbf{j}$. The integral of the source is zero unless one of the source electrodes is located inside the cell, in which case it is $q = \pm I$. Now we have a discrete description of equation 1 over a single cell:
 
-[2i2c]: https://2i2c.org/
-[curvenote]: https://curvenote.com
-[docutils]: https://docutils.sourceforge.io/
-[executablebooks]: https://executablebooks.org/
-[jupyterbook]: https://jupyterbook.org/
-[jupyterlab-myst]: https://github.com/executablebooks/jupyterlab-myst
-[sphinx]: https://www.sphinx-doc.org/
+$$\text{v} \mathbf{D}\mathbf{j} = q$$ (eq:div)
+
+## (2) Scalar equations only, please
+
+Equation [](#eq:div) is a vector equation, so really it is two or three equations involving multiple components of $\vec{j}$. We want to work with a single scalar equation, allow for anisotropic physical properties, and potentially work with non-axis-aligned meshes - how do we do this?! We can use the **weak formulation** where we take the inner product ($\int \vec{a} \cdot \vec{b} dv$) of the equation with a generic face function, $\vec{f}$. This reduces requirements of differentiability on the original equation and also allows us to consider tensor anisotropy or curvilinear meshes .
+
+In [](#fig-weak-formulation), we visually walk through the discretization of equation (b). On the left hand side, a dot product requires a _single_ cartesian vector, $\mathbf{j_x, j_y}$. However, we have a $j$ defined on each face (2 $j_x$ and 2 $j_y$ in 2D!). There are many different ways to evaluate this inner product: we could approximate the integral using trapezoidal, midpoint or higher order approximations. A simple method is to break the integral into four sections (or 8 in 3D) and apply the midpoint rule for each section using the closest $\mathbf{j}$ components to compose a cartesian vector. A $\mathbf{P}_i$ matrix (size $2 \times 4$) is used to pick out the appropriate faces and compose the corresponding vector (these matrices are shown with colors corresponding to the appropriate face in the figure). On the right hand side, we use a vector identity to integrate by parts. The second term will cancel over the entire mesh (as the normals of adjacent cell faces point in opposite directions) and $\phi$ on mesh boundary faces are zero by the Dirichlet boundary condition. This leaves us with the divergence, which we already know how to do!
+
+```{figure} images/weak-formulation.png
+:name: fig-weak-formulation
+:align: center
+:width: 100%
+
+Discretization using the weak formulation and inner products.
+```
+
+The final step is to recognize that, now discretized, we can cancel the general face function $\mathbf{f}$ and transpose the result (for convention's sake):
+
+$$\frac{1}{4} \sum_{i=1}^4 \mathbf{P}_i^\top \sqrt{v} \mathbf{\Sigma}^{-1} \sqrt{v} \mathbf{P}_i \mathbf{j} = \mathbf{D}^\top v \phi$$
+
+# All together now
+
+We have now discretized the two first order equations over a single cell. What is left is to assemble and solve the DC system over the entire mesh. To implement the divergence on the full mesh, the stencil of ±1's must index into $\mathbf{j}$ on the entire mesh (instead of four elements). Although this can be done in a `for-loop`, it is conceptually, and often computationally, easier to create this stencil using nested Kronecker Products (see notebook). The volume and area terms in the divergence get expanded to diagonal matrices, and we multiply them together to get the discrete divergence operator. The discretization of the _face_ inner product can be abstracted to a function, $\mathbf{M}_f(\sigma^{-1})$, that completes the inner product on the entire mesh at once. The main difference when implementing this is the $\mathbf{P}$ matrices, which must index into the entire mesh. With the necessary operators defined for both equations on the entire mesh, we are left with two discrete equations:
+
+$$\text{diag}(\mathbf{v}) \mathbf{D}\mathbf{j} = \mathbf{q}$$
+
+$$\mathbf{M}_f(\sigma^{-1}) \mathbf{j} = \mathbf{D}^\top \text{diag}(\mathbf{v})\phi$$
+
+Note that now all variables are defined over the entire mesh. We could solve this coupled system or we could eliminate $\mathbf{j}$ and solve for $\phi$ directly (a smaller, second-order system).
+
++++{"class": "shaded"}
+
+```{math}
+\text{diag}({\mathbf{v}}) \mathbf{D}\mathbf{M}_f(\sigma^{-1})^{-1}\mathbf{D}^\top\text{diag}({\mathbf{v}})\phi = \mathbf{q}
+```
+
++++
+
+By solving this system matrix, we obtain a solution for the electric potential $\phi$ everywhere in the domain. Creating predicted data from this requires an interpolation to the electrode locations and subtraction to obtain potential differences!
+
+```{figure} images/dc-results.png
+:name: fig-results
+:align: center
+:width: 100%
+
+Electric potential on (a) tensor and (b) curvilinear meshes.
+```
+
+Moving from continuous equations to their discrete analogues is fundamental in geophysical simulations. In this tutorial, we have started from a continuous description of the governing equations for the DC resistivity problem, selected locations on the mesh to discretize the continuous functions, constructed differential operators by considering one cell at a time, assembled and solved the discrete DC equations. Composing the finite volume system in this way allows us to move to different meshes and incorporate various types of boundary conditions that are often necessary when solving these equations in practice.
+
++++ {"part": "availability"}
+
+Associated notebooks are available on [GitHub](https://github.com/simpeg/tle-finitevolume) and can be run online with [MyBinder](http://mybinder.org/repo/simpeg/tle-finitevolume).
+
++++ {"part": "appendix"}
+
+All article content, except where otherwise noted (including republished material), is licensed under a Creative Commons Attribution 3.0 Unported License (CC BY-SA). See <https://creativecommons.org/licenses/by-sa/3.0/>. Distribution or reproduction of this work in whole or in part commercially or noncommercially requires full attribution of the [original publication](https://library.seg.org/doi/10.1190/tle35080703.1), including its digital object identifier (DOI). Derivatives of this work must carry the same license. All rights reserved.
