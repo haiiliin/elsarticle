@@ -8,6 +8,13 @@ authors:
       - An open source python package for simulation and gradient based parameter estimation in geophysical applications.
 license:
   content: CC-BY-SA-3.0
+open_access: true
+doi: 10.1190/tle35080703.1
+biblio:
+  volume: '35'
+  issue: '8'
+  first_page: '936'
+  last_page: '939'
 keywords:
   - Finite volume
   - Direct current
