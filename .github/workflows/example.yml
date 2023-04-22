@@ -5,13 +5,13 @@ on:
     branches:
       - main
     paths:
-      - "example"
+      - "example/**"
       - ".github/workflows/example.yml"
   pull_request:
     branches:
       - main
     paths:
-      - "example"
+      - "example/**"
       - ".github/workflows/example.yml"
   workflow_dispatch:
 
