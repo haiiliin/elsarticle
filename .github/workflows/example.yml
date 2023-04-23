@@ -36,6 +36,7 @@ jobs:
       - name: Build the example
         run: |
           cd example
+          rm -rf outputs
           myst build --docx --tex --pdf
       - name: Commit the changes
         run: |
