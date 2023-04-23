@@ -33,10 +33,10 @@ keywords:
 exports:
   - format: tex
     template: ..
-    output: elsarticle-example
+    output: outputs/elsarticle-example
   - format: pdf
     template: ..
-    output: elsarticle-example.pdf
+    output: outputs/elsarticle-example.pdf
 ---
 
 +++ { "part": "abstract" }
