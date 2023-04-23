@@ -33,7 +33,7 @@ keywords:
 exports:
   - format: tex
     template: ..
-    output: elsarticle-example.zip
+    output: elsarticle-example
   - format: pdf
     template: ..
     output: elsarticle-example.pdf
